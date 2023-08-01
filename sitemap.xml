@@ -3,13 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jordanuyeki.github.io/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://jordanuyeki.github.io/categories/</loc>
+    <loc>https://jordanuyeki.github.io/designs/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://jordanuyeki.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://jordanuyeki.github.io/projects/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://jordanuyeki.github.io/tags/</loc>
+    <loc>https://jordanuyeki.github.io/techs/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

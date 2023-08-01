@@ -5,6 +5,7 @@
     <link>https://jordanuyeki.github.io/projects/</link>
     <description>Recent content in projects on Jordan Uyeki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://jordanuyeki.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© Jordan Uyeki</copyright><atom:link href="https://jordanuyeki.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
