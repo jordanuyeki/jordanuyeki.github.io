@@ -6,6 +6,61 @@
     <description>Recent content in Techs on Jordan Uyeki</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Jordan Uyeki</copyright><atom:link href="https://jordanuyeki.github.io/techs/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Jordan Uyeki</copyright>
+    <lastBuildDate>Sun, 01 Aug 2021 19:47:09 +0200</lastBuildDate><atom:link href="https://jordanuyeki.github.io/techs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>data science</title>
+      <link>https://jordanuyeki.github.io/techs/data-science/</link>
+      <pubDate>Sun, 01 Aug 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deep learning</title>
+      <link>https://jordanuyeki.github.io/techs/deep-learning/</link>
+      <pubDate>Sun, 01 Aug 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neural networks</title>
+      <link>https://jordanuyeki.github.io/techs/neural-networks/</link>
+      <pubDate>Sun, 01 Aug 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://jordanuyeki.github.io/techs/python/</link>
+      <pubDate>Sun, 01 Aug 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sklearn</title>
+      <link>https://jordanuyeki.github.io/techs/sklearn/</link>
+      <pubDate>Sun, 01 Aug 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/sklearn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://jordanuyeki.github.io/techs/machine-learning/</link>
+      <pubDate>Fri, 12 Mar 2021 19:47:09 +0200</pubDate>
+      
+      <guid>https://jordanuyeki.github.io/techs/machine-learning/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
