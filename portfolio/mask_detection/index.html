@@ -16,7 +16,7 @@
 
 
 
-<link rel="stylesheet" href="https://jordanuyeki.github.io/sass/style.min.9cbb069c995042a4842f046263c73e4a660c15a9f3b1f175e3ac0403667cf169.css" integrity="sha256-nLsGnJlQQqSELwRiY8c&#43;SmYMFanzsfF146wEA2Z88Wk=" media="screen">
+<link rel="stylesheet" href="https://jordanuyeki.github.io/sass/style.min.66510bb2c86f56332eb86fb5e09cbc617ff05b9372cfd99e696755685dbd1e8e.css" integrity="sha256-ZlELsshvVjMuuG&#43;14Jy8YX/wW5Nyz9meaWdVaF29Ho4=" media="screen">
 <link rel="stylesheet" href="https://jordanuyeki.github.io/syntax.min.css" integrity="" media="screen">
 
   <meta property="og:title" content="Face Mask Detection" />
@@ -30,7 +30,7 @@
   <meta itemprop="name" content="Face Mask Detection">
 <meta itemprop="description" content="Deep Learning Project for MSDS631 at the University of San Francisco."><meta itemprop="datePublished" content="2021-08-01T19:47:09&#43;02:00" />
 <meta itemprop="dateModified" content="2021-08-01T19:47:09&#43;02:00" />
-<meta itemprop="wordCount" content="85">
+<meta itemprop="wordCount" content="643">
 <meta itemprop="keywords" content="" />
 </head>
 <body>
@@ -41,7 +41,7 @@
   <div class="intro">
     <div class="logo-container">
       <a href="/">
-        <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile about" class="rounded-logo">
+        <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile Techs" class="rounded-logo">
       </a>
     </div>
     <h2>Hi, I'm Jordan 👋</h2>
@@ -113,7 +113,7 @@
     <div class="intro">
       <div class="logo-container">
         <a href="/">
-          <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile about" class="rounded-logo">
+          <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile Techs" class="rounded-logo">
         </a>
       </div>
       <h2>Hi, I'm Jordan 👋</h2>
@@ -267,13 +267,61 @@
 
 <img title="Face Mask Detection" alt="Face Mask Detection" src="/portfolio/mask_detection/mask.jpg" />
 
-<p>This would be a description of your sample project. You can add any content you&rsquo;d like.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<p><a href="#overview">Project Overview</a> <br>
+<a href="#data">The Data</a>  <br>
+<a href="#model">Neural Network Models</a>  <br>
+<a href="#results">Results</a>   <br>
+<a href="#future">Future Directions</a></p>
+<h3 id="project-overview-a-nameoverviewa">Project Overview <a name="overview"></a></h3>
+<p>Over a year in and the COVID-19 pandemic is still as present as ever - and with that, wearing masks in public places has become the new normal. Despite much resistance, mask wearing is critical to keep the general population safe and minimize the spread of the virus.</p>
+<p>The goal of this project was to build a neural network model which could be used to determine whether or not people are wearing face masks. While this model is built to take static images as input, the idea is that the applications of this model could be expanded and used to analyze surveillance camera footage, flagging people who are potentially violating mask wearing mandates.</p>
+<h3 id="the-data-a-namedataa">The Data <a name="data"></a></h3>
+<p>The dataset for this project can be found on <a href="https://www.kaggle.com/datasets/prithwirajmitra/covid-face-mask-detection-dataset">kaggle</a>. It contains labeled training/testing/validation sets of images - each image contains one individual who is either wearing or not wearing a mask.</p>
+<p><img src="data_sample.jpg" alt="sample"></p>
+<p>As you might notice, the images are pretty clean with the individual being clearly presented with minimal background noise in each of the images. Therefore, there was not much preprocessing required - the only step was to resize the images to satisfy the dimension requirements of the candidate models.</p>
+<h3 id="neural-network-models--a-namemodela">Neural Network Models  <a name="model"></a></h3>
+<p>For this project, we compared 3 different candidate models with Adam Optimizers and the Cross Entropy Loss Function:</p>
+<ul>
+<li>Convolutional Neural Network (built from scratch with 4 convolution and 2 linear layers) with various epochs and learning rates. See this <a href="https://github.com/jordanuyeki/MSDS631_FinalProject/blob/main/MaskClassification.ipynb">notebook</a> for more details.</li>
+<li><a href="https://pytorch.org/vision/main/models/generated/torchvision.models.mobilenet_v2.html">Pretrained Mobilenet V2</a> with 5 epochs.</li>
+<li><a href="https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html">Pretrained Resnet 18</a> with 5 epochs.</li>
+</ul>
+<p>One of the benefits of using a pretrained model is that the pre-initialized weights allow for faster convergence.</p>
+<h3 id="results--a-nameresultsa">Results  <a name="results"></a></h3>
+<p>We used accuracy as the evaluation metric when comparing the models and their performances when trained on the training set and validated on the validation set. The table below summarizes the results.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Model</th>
+<th style="text-align:left">Training Acc</th>
+<th style="text-align:left">Validation Acc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CNN</td>
+<td style="text-align:left">0.900</td>
+<td style="text-align:left">0.899</td>
+</tr>
+<tr>
+<td style="text-align:left">Mobilenet V2</td>
+<td style="text-align:left">0.980</td>
+<td style="text-align:left">0.950</td>
+</tr>
+<tr>
+<td style="text-align:left">Resnet18</td>
+<td style="text-align:left">0.972</td>
+<td style="text-align:left">0.948</td>
+</tr>
+</tbody>
+</table>
+<p>The Convolutional Neural Network model struggled to keep up with the other 2 models - it took training for 20 epochs to attain the 0.900/0.899 accuracies which still falls short of the other 2 models. We decided to throw this model out from our candidate model pool in order to save on computational power.</p>
+<p>We chose the Mobilenet as our final model as it achieved the highest accuracy on the training and validation data. To evaluate the final model, we retrained the model using a combined dataset comprised of both the training and validation dataset and evaluated it on the testing dataset which contained a total of 100 images - 50 mask wearers and 50-non mask wearers. After training for 3 epochs, we got a final accuracy of 98%, with only 2 non-mask images being incorrectly classified.</p>
+<h3 id="future-directions--a-namefuturea">Future Directions  <a name="future"></a></h3>
+<p>This dataset was very clean and contained fairly straightforward images with the individuals being facing forward with minimal background distractions. This likely contributed to our high accuracies. In future iterations of this project, we would like to develop our model on more diverse data that consists of more noisy images to allow our model to be more robust and uphold its high accuracy on more realistic data. More diverse data would also give us an opportunity to explore the weaknesses in the model.</p>
+<p>With further improvements, this model could be very helpful in the public health sectors. This model could be used to categorize mask wearing tendancies of different locations, which could have endless applications such as proving the efficacy of mask wearing in preventing the spread of the virus leading to a safer and healthier world for us all.</p>
+<h5 id="this-analysis-was-completed-for-the-final-project-for-msds631-deep-learning-a-graduate-class-part-of-the-masters-in-data-science-curriculum-at-the-university-of-san-francisco">This analysis was completed for the final project for MSDS631: Deep Learning (a graduate class part of the Masters in Data Science curriculum at the University of San Francisco).</h5>
 
 
 
@@ -282,7 +330,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
   <footer>
     <div class="footer-wrapper">
-      <p>Made with ❤️ &mdash; Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme. Icons come from the great <a href="https://fontawesome.com/license" target="_blank" rel="external">Font Awesome</a> library</p>
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme.</p>
       <p>© Jordan Uyeki</p>
     </div>
   </footer>

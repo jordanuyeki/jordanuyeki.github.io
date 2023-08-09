@@ -16,7 +16,7 @@
 
 
 
-<link rel="stylesheet" href="https://jordanuyeki.github.io/sass/style.min.9cbb069c995042a4842f046263c73e4a660c15a9f3b1f175e3ac0403667cf169.css" integrity="sha256-nLsGnJlQQqSELwRiY8c&#43;SmYMFanzsfF146wEA2Z88Wk=" media="screen">
+<link rel="stylesheet" href="https://jordanuyeki.github.io/sass/style.min.66510bb2c86f56332eb86fb5e09cbc617ff05b9372cfd99e696755685dbd1e8e.css" integrity="sha256-ZlELsshvVjMuuG&#43;14Jy8YX/wW5Nyz9meaWdVaF29Ho4=" media="screen">
 <link rel="stylesheet" href="https://jordanuyeki.github.io/syntax.min.css" integrity="" media="screen">
 
   <meta property="og:title" content="Animal Shelter Outcome Predictions" />
@@ -30,7 +30,7 @@
   <meta itemprop="name" content="Animal Shelter Outcome Predictions">
 <meta itemprop="description" content="Machine Learning Project for MSDS699 at the University of San Francisco."><meta itemprop="datePublished" content="2021-03-12T19:47:09&#43;02:00" />
 <meta itemprop="dateModified" content="2021-03-12T19:47:09&#43;02:00" />
-<meta itemprop="wordCount" content="85">
+<meta itemprop="wordCount" content="997">
 <meta itemprop="keywords" content="" />
 </head>
 <body>
@@ -41,7 +41,7 @@
   <div class="intro">
     <div class="logo-container">
       <a href="/">
-        <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile about" class="rounded-logo">
+        <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile Techs" class="rounded-logo">
       </a>
     </div>
     <h2>Hi, I'm Jordan 👋</h2>
@@ -113,7 +113,7 @@
     <div class="intro">
       <div class="logo-container">
         <a href="/">
-          <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile about" class="rounded-logo">
+          <img src='https://jordanuyeki.github.io/images/site/jordan.jpg' alt="Profile Techs" class="rounded-logo">
         </a>
       </div>
       <h2>Hi, I'm Jordan 👋</h2>
@@ -264,13 +264,67 @@
 
 <img title="Animal Shelter Outcome Predictions" alt="Animal Shelter Outcome Predictions" src="/portfolio/shelter_predictions/dogs.jpg" />
 
-<p>This would be a description of your sample project. You can add any content you&rsquo;d like.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<p><a href="#overview">Project Overview</a> <br>
+<a href="#data">The Data</a>  <br>
+<a href="#data-prep">Data Preparation and Feature Engineering</a>  <br>
+<a href="#model">Modeling</a>  <br>
+<a href="#results">Results</a>   <br>
+<a href="#future">Future Directions</a></p>
+<p>For a video walkthrough of my project, please see this <a href="https://www.youtube.com/watch?v=Ta35A03J3D8">youtube video</a>.</p>
+<h3 id="project-overview-a-nameoverviewa">Project Overview <a name="overview"></a></h3>
+<p>According to the <a href="https://www.aspca.org/">ASPCA</a>, pet adoption rates skyrocketed across the United States during the COVID-19 pandemic, with nearly 1 in 5 American households adopting a new furry friend into their family. My family was among those who adopted a new pet during the pandemic - in August 2020, we adopted my bestie, Bolt!</p>
+<p><img src="bolt.jpg" alt="Bolt"></p>
+<p>We got Bolt at 3 months old from a US-based organization that rescues dogs from Mexico. With so many other families looking for puppies, I spent hours scouring listings on a popular platform, <a href="https://www.petfinder.com/">Petfinder</a> and quickly noticed the vast differences in quality of listings on the site. I felt that for a lot of these animals, simply having a better quality profile could improve their chances of adoption.</p>
+<p>The goal for this project was to build a machine learning model that can predict adoption outcomes for shelter/rescue animals based on their adoption profiles. Ultimately this model could be used by rescues and shelters to optimize animal profiles, giving them the best chance of finding their fur-ever families, just like Bolt.</p>
+<h3 id="the-data-a-namedataa">The Data <a name="data"></a></h3>
+<p>The data used for this project was collected by the Austin Animal Center and is publically available on <a href="https://www.kaggle.com/datasets/aaronschlegel/austin-animal-center-shelter-outcomes-and">kaggle</a>.</p>
+<p>The dataset contains information for over 50,000 shelter animals (predominantly dogs and cats) with 13 variables:</p>
+<ul>
+<li>age_upon_outcome: the age of the animal when it left the shelter.</li>
+<li>animal_id: identification number for the animal.</li>
+<li>animal_type: type of animal (dog, cat, other).</li>
+<li>breed: breed of the animal (if known).</li>
+<li>color: dominant color of the animal.</li>
+<li>date_of_birth: birthdate of the animal (if known).</li>
+<li>datetime: date/time that the animal entered the shelter.</li>
+<li>monthyear: similar to datetime but without the time.</li>
+<li>name: name of the animal (if it exists - many animals don&rsquo;t even have names).</li>
+<li>fixed_status: fixed status of the animal (Spayed, Neutered, Intact).</li>
+<li>gender: gender of the animal.</li>
+<li>outcome_subtype: subcategories for the shelter animal outcomes.</li>
+<li><strong>outcome_type</strong> (variable to predict): the outcome of the animal when it left the shelter (outcomes include Adoption, Transferred, Died, Euthanasia 😟 ).</li>
+</ul>
+<h3 id="data-preparation--feature-engineering--a-namedata-prepa">Data Preparation / Feature Engineering  <a name="data-prep"></a></h3>
+<p>Prior to modeling, the data needed to be cleaned and prepared. The major steps are outlined below but for more details, please see the <a href="https://github.com/jordanuyeki/699_ShelterOutcomes/blob/main/MSDS699_FinalProject.ipynb">notebook</a> in my project repository on GitHub.</p>
+<p>To start, I separated out the outcome variable of interest from the rest of the variables so that they could be prepared separately. To prepare the outcome variable, I used an encoder from sklearn&rsquo;s <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing">preprocessing module</a> to convert the categorical shelter animal outcome variable into numerical labels</p>
+<p>Prior to modeling, the predictor variables needed to be transformed to make more usable by the models downstream. I used sklearn&rsquo;s <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.pipeline">pipeline module</a>, which allows you to make individual pipelines for each variable which can then be combined into one seamless preprocessing pipeline. Data imputation and transformations were applied to the variables of interest.</p>
+<h3 id="modeling--a-namemodela">Modeling  <a name="model"></a></h3>
+<p>Before modeling, I split the data into an 80/20 split - a random 80% of the data was used for training the models while the other 20% was witheld to evaluate and compare the models. For this project, I evaluated and compared 3 different candidate classifier models:</p>
+<ul>
+<li>Random Forest Classifier</li>
+<li>Ridge Classifier</li>
+<li>Multi-class Logistic Regression</li>
+</ul>
+<p>I utilized a Randomized Cross Validation method from sklearn&rsquo;s <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection">model selection module</a> to fit and compare the candidate models. One advantage of this method over a regular grid search is that the hyperparameter search is optimized - only a sample, rather than all, of the hyperparameter combinations are compared. With multiple candidate models and hyperparameters to tune, the number of models to run can quickly scale - this method saves a lot of computing power.</p>
+<h3 id="results--a-nameresultsa">Results  <a name="results"></a></h3>
+<p>After a 5-fold cross validation, the best performing model was a Random Forest Classifier with the following hyperparameters:</p>
+<ul>
+<li>max_depth=10 (the maximum depth that each tree in the forest model can be expanded to)</li>
+<li>min_samples_leaf=4 (the minimum number of samples that any leaf node can contain - keeps the model from getting too specific)</li>
+<li>min_samples_split=3 (the mininum number of samples required at any of the internal (non-leaf) nodes)</li>
+<li>n_estimators=150 (the number of trees in the forest model)</li>
+</ul>
+<p>To evaluate the models, I considered 2 different evaluation metrics, accuracy and the F1 score. Accuracy, which is a little easier to understand as it is simply the percentage of classificatons that are correct. The random forest model attained a 77.5% accuracy on the witheld test dataset. The F1 score gives us more insight into how the model is specifically performing on the different outcome types; specifically, it is the precision to recall ratio. The model got a F1 score of 0.237, indicating that the precision and recall of the model is not good.</p>
+<h3 id="future-directions--a-namefuturea">Future Directions  <a name="future"></a></h3>
+<p>In future iterations of this project, I would like to:</p>
+<ul>
+<li>perform a feature importance analysis to automate the variable selection process, ,making it more robust.</li>
+<li>combine the outcome variable values into broader categories such as positive and negative outcomes. This would hopefully salvage some of the observations that were incorrectly classified into very similar outcome types (eg. Died misclassified as Euthanasia).</li>
+<li>leverage NLP methods, which would allow me to use previously ignored variables such as breed and fur color.</li>
+</ul>
+<p>With further improvements, this model could be very useful in the animal welfare sectors. Thousands of dogs and cats are registered in rescue/shelter/pound systems each year. Many of these animals are fortunate enough to find forever homes but others are not so lucky. According the the ASPCA, over 1.5 million shelter animals are euthanized each year due to overcapacity. To help lower this number, this model could be used as a way to evaluate shelter animal adoption profiles to optimize their chance of finding a family of their own.</p>
+<h5 id="this-analysis-was-completed-for-the-final-project-for-msds699-machine-learning-lab-a-graduate-class-part-of-the-masters-in-data-science-curriculum-at-the-university-of-san-francisco">This analysis was completed for the final project for MSDS699: Machine Learning Lab (a graduate class part of the Masters in Data Science curriculum at the University of San Francisco).</h5>
 
 
 
@@ -279,7 +333,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
   <footer>
     <div class="footer-wrapper">
-      <p>Made with ❤️ &mdash; Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme. Icons come from the great <a href="https://fontawesome.com/license" target="_blank" rel="external">Font Awesome</a> library</p>
+      <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme.</p>
       <p>© Jordan Uyeki</p>
     </div>
   </footer>

@@ -14,8 +14,9 @@
       <pubDate>Fri, 12 Mar 2021 19:47:09 +0200</pubDate>
       
       <guid>https://jordanuyeki.github.io/portfolio/shelter_predictions/</guid>
-      <description>This would be a description of your sample project. You can add any content you&amp;rsquo;d like.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+      <description>Table of Contents Project Overview The Data Data Preparation and Feature Engineering Modeling Results Future Directions
+For a video walkthrough of my project, please see this youtube video.
+Project Overview  According to the ASPCA, pet adoption rates skyrocketed across the United States during the COVID-19 pandemic, with nearly 1 in 5 American households adopting a new furry friend into their family. My family was among those who adopted a new pet during the pandemic - in August 2020, we adopted my bestie, Bolt!</description>
     </item>
     
   </channel>
